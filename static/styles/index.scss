@@ -21,7 +21,7 @@
     .content-img {
         text-align: center;
         img {
-          width: 75%;
+          width: 50%;
           object-fit: cover;
           margin-bottom: 15px;
           @include media("<=md") {
@@ -40,6 +40,9 @@
             font-size: 10px;
             }
         }
+        @include media("<=sm"){
+            text-align: center;
+        }
     }
     .content-button{
         .live{
@@ -47,6 +50,9 @@
             font-size: 18px;
             padding: 0.2 rem;
             cursor: pointer;
+        }
+        @include media("<=sm"){
+            text-align: center;
         }
     }
 }

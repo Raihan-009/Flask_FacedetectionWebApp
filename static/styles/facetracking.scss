@@ -1,0 +1,41 @@
+@import './breakpoints.scss';
+
+body{
+    .background{
+        background-color: white;
+        padding: 1rem;
+        .content-heading{
+            h2{
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            p{
+                margin-top: 0px;
+                font-size: 24px;
+            }
+        }
+        .content{
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 480px;
+                height: auto;
+                margin-left: 20px;
+            }
+
+        }
+        .decision-button{
+            margin-top: 10px;
+            text-align: center;
+            button{
+                border-radius: 1px;
+            }
+        }
+    }
+}

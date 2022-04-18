@@ -29,7 +29,7 @@
 }
 
 .background .content-img img {
-  width: 75%;
+  width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 15px;
@@ -53,10 +53,22 @@
   }
 }
 
+@media (max-width: 576px) {
+  .background .content-description {
+    text-align: center;
+  }
+}
+
 .background .content-button .live {
   border-radius: 1px;
   font-size: 18px;
   padding: 0.2 rem;
   cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .background .content-button {
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=index.css.map */

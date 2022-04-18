@@ -1,0 +1,56 @@
+/**
+*
+* Testing
+*
+**/
+body .background {
+  background-color: white;
+  padding: 1rem;
+}
+
+body .background .content-heading h2 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+body .background .content-heading p {
+  margin-top: 0px;
+  font-size: 24px;
+}
+
+body .background .content {
+  text-align: center;
+  padding: 1rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .background .content img {
+  width: 480px;
+  height: auto;
+  margin-left: 20px;
+}
+
+body .background .decision-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+body .background .decision-button button {
+  border-radius: 1px;
+}
+/*# sourceMappingURL=facetracking.css.map */
