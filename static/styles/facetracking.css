@@ -9,17 +9,17 @@ body .background {
 }
 
 body .background .content-heading h2 {
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
   margin-bottom: 5px;
 }
 
 body .background .content-heading p {
-  margin-top: 0px;
-  font-size: 24px;
+  margin-top: 5px;
+  font-size: 20px;
 }
 
-body .background .content {
+body .background #streaming {
   text-align: center;
   padding: 1rem;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -27,10 +27,6 @@ body .background .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -39,10 +35,43 @@ body .background .content {
           align-items: center;
 }
 
-body .background .content img {
+body .background #streaming img {
+  width: 30%;
+  height: auto;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+body .background #videoStreaming {
+  text-align: center;
+  padding: 1rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .background #videoStreaming img {
   width: 480px;
   height: auto;
   margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+body .background #videoStreaming h3 {
+  text-align: center;
+  font-size: 18px;
 }
 
 body .background .decision-button {
