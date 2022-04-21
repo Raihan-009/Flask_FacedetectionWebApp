@@ -2,6 +2,7 @@ from flask import Flask, Response, render_template
 import cv2
 import faceTracker as ft
 import handTracker as ht
+import meshTracker as mt
 
 
 app = Flask(__name__)
@@ -58,6 +59,22 @@ def handTracking_streaming():
 @app.route("/mesh_detection")
 def mesh_tracking():
     return render_template("meshtracking.html")
+#mesh detection module
+def mesh_detection():
+    mesh_tracker = mt.MeshDetection()
+    cam = cv2.VideoCapture(0)
+    while True:
+        ret, frame = cam.read()
+        if ret:
+            _, img = mesh_tracker.findFaceMesh(frame)
+            frame = cv2.imencode('.jpg', frame)[1].tobytes()
+            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        else:
+            break
+#mesh detection streaming
+@app.route("/meshtracking")
+def meshtracking_streaming():
+    return Response(mesh_detection(),mimetype='multipart/x-mixed-replace; boundary=frame')    
 
 
 #original video streaming
