@@ -4,41 +4,57 @@
     <h3>Computer Vision</h3>
     <p>A platform to expand your vision with computer vision based in python</p>
 </div>
-<div class="container mb-5">
-    <div class="row">
-        <div class="col-sm-4 col-12">
-            <div class="background">
-                <img src="{{ url_for('static', filename = './images/face.png') }}" alt="" />
-                <h4>Face Detection</h4>
-                <p>
-                    MediaPipe Face Detection is an ultrafast face detection solution that comes with 6 landmarks and multi-face support. It is based on BlazeFace, a lightweight and well-performing face detector tailored for mobile GPU inference. The detector’s super-realtime performance enables it to be applied to any live viewfinder experience that requires an accurate facial region of interest as an input for other task-specific models, such as 3D facial keypoint estimation 
-                </p>
-                <a href="/face_detection"><button class="btn btn-success live">Go Live</button></a>
+<div class="core container mb-5">
+    <div class="heading">
+        <div class="row">
+            <div class="col-12 col-sm-4 d-flex justify-content-center justify-content-sm-start">
+                <h3>Core Concepts</h3>
+            </div>
+            <div class="col-0 col-sm-8 d-flex justify-content-end">
+                <a class="mx-1" href="#">See All</a>
+            </div>
+            <div class="hr-line">
+                <hr class="modified-height">
             </div>
         </div>
-        <div class="col-sm-4 col-12">
-            <div class="background">
-                <img src="{{ url_for('static', filename = './images/hand.png') }}" alt="" />
-                <h4>Hand Detection</h4>
-                <p>
-                    MediaPipe Hands is a high-fidelity hand and finger tracking solution.
-                    It employs machine learning (ML) to infer 21 3D landmarks of a hand
-                    from just a single frame.
-                </p>
-                <a href="/hand_detection"><button class="btn btn-success live">Go Live</button></a>
+    </div>
+    <div class="contents">
+        <div class="row">
+            <div class="col-sm-4 col-12">
+                <div class="background">
+                    <img src="{{ url_for('static', filename = './images/face.png') }}" alt="" />
+                    <h4>Face Detection</h4>
+                    <p>
+                        MediaPipe Face Detection is an ultrafast face detection solution that comes with 6 landmarks and multi-face support. It is based on BlazeFace, a lightweight and well-performing face detector tailored for mobile GPU inference. The detector’s super-realtime performance enables it to be applied to any live viewfinder experience that requires an accurate facial region of interest as an input for other task-specific models, such as 3D facial keypoint estimation 
+                    </p>
+                    <a href="/face_detection"><button class="btn btn-success live">Go Live</button></a>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4 col-12">
-            <div class="background">
-                <img src="{{ url_for('static', filename = './images/facemesh.jpeg') }}" alt="" />
-                <h4>Facemesh Detection</h4>
-                <p>
-                    MediaPipe Face Mesh is a solution that estimates 468 3D face landmarks
-                    in real-time even on mobile devices. It employs machine learning (ML).
-                </p>
-                <a href="/mesh_detection"><button class="btn btn-success live">Go Live</button></a>
+            <div class="col-sm-4 col-12">
+                <div class="background">
+                    <img src="{{ url_for('static', filename = './images/hand.png') }}" alt="" />
+                    <h4>Hand Detection</h4>
+                    <p>
+                        MediaPipe Hands is a high-fidelity hand and finger tracking solution.
+                        It employs machine learning (ML) to infer 21 3D landmarks of a hand
+                        from just a single frame.
+                    </p>
+                    <a href="/hand_detection"><button class="btn btn-success live">Go Live</button></a>
+                </div>
+            </div>
+            <div class="col-sm-4 col-12">
+                <div class="background">
+                    <img src="{{ url_for('static', filename = './images/facemesh.jpeg') }}" alt="" />
+                    <h4>Facemesh Detection</h4>
+                    <p>
+                        MediaPipe Face Mesh is a solution that estimates 468 3D face landmarks
+                        in real-time even on mobile devices. It employs machine learning (ML).
+                    </p>
+                    <a href="/mesh_detection"><button class="btn btn-success live">Go Live</button></a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
