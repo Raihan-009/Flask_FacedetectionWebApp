@@ -74,7 +74,8 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 50%;
+  width: auto;
+  height: 190px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 15px;
@@ -89,9 +90,10 @@
 }
 
 .core .contents .background h4 {
-  font-size: 30px;
+  font-size: 25px;
+  letter-spacing: 2px;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .core .contents .background p {
@@ -119,6 +121,114 @@
 
 @media (max-width: 576px) {
   .core .contents .background .live {
+    text-align: center;
+  }
+}
+
+.projects .heading {
+  position: relative;
+}
+
+.projects .heading h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.projects .heading a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.projects .heading .hr-line .modified-height {
+  margin-top: 0px !important;
+}
+
+.projects .heading .hr-line hr {
+  background-color: grey;
+  opacity: 0.6;
+}
+
+.projects .heading .hr-line hr::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 100px;
+  border-top: 3px solid #3364f4;
+}
+
+@media (max-width: 576px) {
+  .projects .heading .hr-line hr::after {
+    top: 55px;
+    width: 100px;
+  }
+}
+
+.projects .contents .background {
+  height: 480px;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1rem;
+  min-height: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.projects .contents .background img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: auto;
+  height: 190px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .projects .contents .background img {
+    width: 75%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+.projects .contents .background h4 {
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.projects .contents .background p {
+  text-align: justify;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .projects .contents .background p {
+    font-size: 10px;
+  }
+}
+
+.projects .contents .background .live {
+  border-radius: 1px;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+}
+
+@media (max-width: 576px) {
+  .projects .contents .background .live {
     text-align: center;
   }
 }
