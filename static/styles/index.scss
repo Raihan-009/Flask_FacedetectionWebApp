@@ -1,12 +1,14 @@
-@import './breakpoints.scss';
-.intro{
-    h3{
+@import "./breakpoints.scss";
+
+.intro {
+    h3 {
         text-align: center;
         font-size: 35px;
-        margin-top: 5px;  
-        margin-bottom: 0px; 
+        margin-top: 5px;
+        margin-bottom: 0px;
     }
-    p{
+
+    p {
         margin-top: 1px;
         font-size: 20px;
         text-align: center;
@@ -14,45 +16,63 @@
     }
 }
 
-.background{
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 1rem;
-    .content-img {
-        text-align: center;
-        img {
-          width: 50%;
-          object-fit: cover;
-          margin-bottom: 15px;
-          @include media("<=md") {
-            width: 75%;
-            object-fit: cover;
-          }
-        }
-      }
+.row {
+   
     
-    .content-description {
-        h4{
-            font-size: 30px;
-        }
-        p {
+    .background {
+        height: 460px;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 1rem;
+        min-height: 300px;
+        margin: 0 auto;
+        position: relative;
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+
             @include media("<=md") {
-            font-size: 10px;
+                width: 75%;
+                object-fit: cover;
             }
         }
-        @include media("<=sm"){
-            text-align: center;
+
+        h4 {
+            font-size: 30px;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
-    }
-    .content-button{
-        .live{
+
+        p {
+            text-align: justify;
+            letter-spacing: 1px;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            @include media("<=md") {
+                font-size: 10px;
+            }
+        }
+        .live {
             border-radius: 1px;
             font-size: 18px;
-            padding: 0.2 rem;
             cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            @include media("<=sm") {
+                text-align: center;
+            }
         }
-        @include media("<=sm"){
-            text-align: center;
-        }
+
+        
+
+        
+
     }
 }

@@ -54,6 +54,12 @@ def hand_detection():
 def handTracking_streaming():
     return Response(hand_detection(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
+#Mesh Detection front end
+@app.route("/mesh_detection")
+def mesh_tracking():
+    return render_template("meshtracking.html")
+
+
 #original video streaming
 def original_face():
     cam = cv2.VideoCapture(0)

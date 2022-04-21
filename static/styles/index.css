@@ -17,18 +17,22 @@
   margin-bottom: 20px;
 }
 
-.background {
+.row .background {
+  height: 460px;
   background-color: white;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1rem;
+  min-height: 300px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.background .content-img {
+.row .background img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-}
-
-.background .content-img img {
   width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -36,38 +40,44 @@
 }
 
 @media (max-width: 768px) {
-  .background .content-img img {
+  .row .background img {
     width: 75%;
     -o-object-fit: cover;
        object-fit: cover;
   }
 }
 
-.background .content-description h4 {
+.row .background h4 {
   font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.row .background p {
+  text-align: justify;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
-  .background .content-description p {
+  .row .background p {
     font-size: 10px;
   }
 }
 
-@media (max-width: 576px) {
-  .background .content-description {
-    text-align: center;
-  }
-}
-
-.background .content-button .live {
+.row .background .live {
   border-radius: 1px;
   font-size: 18px;
-  padding: 0.2 rem;
   cursor: pointer;
+  position: absolute;
+  bottom: 20px;
 }
 
 @media (max-width: 576px) {
-  .background .content-button {
+  .row .background .live {
     text-align: center;
   }
 }
