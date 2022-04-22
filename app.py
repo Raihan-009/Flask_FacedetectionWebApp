@@ -4,6 +4,7 @@ import faceTracker as ft
 import handTracker as ht
 import meshTracker as mt
 import fingerCounter as fc
+import fingerIdentifier as fi
 
 
 app = Flask(__name__)
@@ -120,6 +121,38 @@ def finger_counting():
 def fingerCounting_streaming():
     return Response(finger_counting(),mimetype='multipart/x-mixed-replace; boundary=frame')   
     
+#finger Identifier front end
+@app.route("/finger_identifier")
+def identified_finger_tracking():
+    return render_template("fingeridentifier.html")
+
+#finger Identification module
+def finger_identification():
+    cam = cv2.VideoCapture(0)
+    hand_tracker = ht.handTracker()
+    finger_identifier = fi.fingerIdentifier()
+    while True:
+        ret, frame = cam.read()
+        cv2.rectangle(frame, (10,10), (525,45), (255,255,255), cv2.FILLED)
+        cv2.putText(frame, 'Project Finger Identification', (15,35), cv2.FONT_HERSHEY_COMPLEX, 1, (255,0,0), 2)
+        if ret:
+            hands = hand_tracker.findHands(frame)
+            if hands:
+                oneHand = hands[0]
+                finger_1 = finger_identifier.fingerOrientation(oneHand)
+                context = finger_identifier.fingerIdentification(finger_1)
+                cv2.rectangle(frame, (10,50), (325,95), (255,255,255), cv2.FILLED)
+                cv2.putText(frame, context, (15,75), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,74,186), 2)
+            frame = cv2.imencode('.jpg', frame)[1].tobytes()
+            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        else:
+            break
+
+#identified finger streaming
+@app.route("/identifiedfingerStreaming")
+def fingerIdentification_streaming():
+    return Response(finger_identification(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
 if __name__ == "__main__":
     app.run(debug = True)
     
