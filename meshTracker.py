@@ -32,12 +32,12 @@ class MeshDetection():
             for faceialLandmarks in self.results.multi_face_landmarks:
                 if draw:
                     self.mpDraw.draw_landmarks(img, faceialLandmarks, self.mp_facemesh.FACEMESH_CONTOURS,self.landmarks_drawing_Spec, self.connection_drawing_spec)
-                    face = []
-                    for id, lm in enumerate(faceialLandmarks.landmark):
-                        h,w,c = img.shape
-                        x,y = int(lm.x*w), int(lm.y*h)
-                        face.append([x,y])
-                    faces.append(face)
+                face = []
+                for id, lm in enumerate(faceialLandmarks.landmark):
+                    h,w,c = img.shape
+                    x,y = int(lm.x*w), int(lm.y*h)
+                    face.append([x,y])
+                faces.append(face)
         return faces,img
         
 
@@ -48,7 +48,8 @@ def main():
     while True:
         ret, frame = cap.read()
         if ret:
-            _, img = tracker.findFaceMesh(frame)
+            faces, img = tracker.findFaceMesh(frame)
+            # print(faces)
             cv2.imshow("Framing", img)
         else:
             break

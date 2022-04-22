@@ -1,10 +1,27 @@
 import cv2
+import math
 import meshTracker as mt
-import measurementMeter as ms
 
+class Measurement():
+    def __init__(self):
+        pass
+    
+    def findDistance(self,p1 ,p2, img = None, drawL = True):
+        x1,y1 = p1
+        x2,y2 = p2
+        cx,cy = (x1+x2)//2 , (y1+y2)//2
+        distance = math.hypot(x2-x1, y2-y1)
+        if img is not None:
+            if drawL:
+                cv2.circle(img,(x1,y1),5,(0,0,255),2)
+                cv2.circle(img,(x2,y2),5,(0,0,255),2)
+                cv2.line(img,p1,p2,(0,255,0),2)
+            return img,distance
+        else:
+            return distance
 
 mesh_tracker = mt.MeshDetection()
-distance_finder = ms.Measurement()
+distance_finder = Measurement()
 
 class BlinkCounter():
     def __init__(self):
@@ -45,11 +62,10 @@ class BlinkCounter():
                 if self.counter > 10:
                     self.counter = 0
                     self.color = (255,0, 255)
-        return self.eyeBlinkCounter
-
+            return self.eyeBlinkCounter
 def main():
-    blink_tracker = BlinkCounter()
     cam = cv2.VideoCapture(0)
+    tracker = BlinkCounter()
     while True:
         ret, frame = cam.read()
         cv2.rectangle(frame, (10,10), (345,45), (255,255,255), cv2.FILLED)
@@ -58,11 +74,12 @@ def main():
             faces, img = mesh_tracker.findFaceMesh(frame, draw=False)
             if faces:
                 face = faces[0]
-                value = blink_tracker.blinkCounter(img,face, drawE=True)
-                print(value)
+                #print(face)
+                value = tracker.blinkCounter(img,face, drawE=True)
+                # print(value)
                 cv2.rectangle(frame, (10,50), (150,95), (255,255,255), cv2.FILLED)
                 cv2.putText(frame, "Count : "+ str(value), (15,80), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,74,186), 2)
-            cv2.imshow("Framing", img)
+                cv2.imshow("Framing", frame)
         else:
             break
         if cv2.waitKey(1) & 0xFF == ord('q'):
