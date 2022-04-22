@@ -90,15 +90,14 @@ def counted_finger_tracking():
 def finger_counting():
     hand_tracker = ht.handTracker()
     finger_counter = fc.FingerCounter()
-
     cam = cv2.VideoCapture(0)
-
     while True:
         ret, frame = cam.read()
         cv2.rectangle(frame, (10,10), (250,30), (255,255,255), cv2.FILLED)
         cv2.putText(frame, 'Project Finger Counting', (15,25), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255,0,0), 1)
         if ret:
             hands = hand_tracker.findHands(frame)
+            
             if hands:
                 oneHand = hands[0]
                 first_five = finger_counter.fingerOrientation(oneHand)
@@ -108,11 +107,11 @@ def finger_counting():
                     second_five = finger_counter.fingerOrientation(secondHand)
                     cv2.rectangle(frame, (10,50), (245,200), (55,245,10), cv2.FILLED)
                     cv2.putText(frame, str(first_five + second_five), (65,175), cv2.FONT_HERSHEY_COMPLEX, 4, (0,0,0), 20)
-                    yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
                 else:
                     cv2.rectangle(frame, (40,50), (200,200), (55,245,10), cv2.FILLED)
                     cv2.putText(frame, str(first_five), (75,175), cv2.FONT_HERSHEY_COMPLEX, 4, (0,0,0), 20)
-                    yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            frame = cv2.imencode('.jpg', frame)[1].tobytes()
+            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         else:
             break
 
@@ -121,22 +120,6 @@ def finger_counting():
 def fingerCounting_streaming():
     return Response(finger_counting(),mimetype='multipart/x-mixed-replace; boundary=frame')   
     
-#original video streaming
-def original_face():
-    cam = cv2.VideoCapture(0)
-    while True:
-        ret, frame = cam.read()
-        if ret:
-            frame = cv2.imencode('.jpg', frame)[1].tobytes()
-            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-        else:
-            break
-        
-
-@app.route("/originalface")
-def originalFace_streaming():
-    return Response(original_face(),mimetype='multipart/x-mixed-replace; boundary=frame')
-
 if __name__ == "__main__":
     app.run(debug = True)
     
