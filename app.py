@@ -5,6 +5,7 @@ import handTracker as ht
 import meshTracker as mt
 import fingerCounter as fc
 import fingerIdentifier as fi
+import blinkedCounter as bc
 
 
 app = Flask(__name__)
@@ -152,6 +153,39 @@ def finger_identification():
 @app.route("/identifiedfingerStreaming")
 def fingerIdentification_streaming():
     return Response(finger_identification(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+#blinked counter front end
+@app.route("/blinked_counter")
+def blinked_counter_tracking():
+    return render_template("blinkedcounter.html")
+
+#blinked counter module
+def blinked_detection():
+    mesh_tracker = mt.MeshDetection()
+    cam = cv2.VideoCapture(0)
+    tracker = bc.BlinkCounter()
+    while True:
+        ret, frame = cam.read()
+        cv2.rectangle(frame, (10,10), (345,45), (255,255,255), cv2.FILLED)
+        cv2.putText(frame, 'Eye Blink Counter', (15,35), cv2.FONT_HERSHEY_COMPLEX, 1, (255,0,0), 2)
+        if ret:
+            faces, img = mesh_tracker.findFaceMesh(frame, draw=False)
+            if faces:
+                face = faces[0]
+                #print(face)
+                value = tracker.blinkCounter(img,face, drawE=True)
+                # print(value)
+                cv2.rectangle(frame, (10,50), (150,95), (255,255,255), cv2.FILLED)
+                cv2.putText(frame, "Count : "+ str(value), (15,80), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,74,186), 2)
+                frame = cv2.imencode('.jpg', frame)[1].tobytes()
+                yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        else:
+            break
+
+#blinked counter streaming
+@app.route("/blinkedcounterStreaming")
+def blinkedcounter_streaming():
+    return Response(blinked_detection(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
     app.run(debug = True)
