@@ -69,6 +69,12 @@
   position: relative;
 }
 
+@media (max-width: 576px) {
+  .core .contents .background {
+    height: 420px;
+  }
+}
+
 .core .contents .background img {
   display: block;
   margin-left: auto;
@@ -83,7 +89,6 @@
 
 @media (max-width: 768px) {
   .core .contents .background img {
-    width: 75%;
     -o-object-fit: cover;
        object-fit: cover;
   }

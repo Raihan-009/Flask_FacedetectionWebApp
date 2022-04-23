@@ -36,10 +36,15 @@ body .background #streaming {
 }
 
 body .background #streaming img {
-  width: 30%;
+  width: 360px;
   height: auto;
-  margin-left: 20px;
   margin-bottom: 5px;
+}
+
+@media (max-width: 576px) {
+  body .background #streaming img {
+    width: 180px;
+  }
 }
 
 body .background #videoStreaming {
@@ -65,8 +70,14 @@ body .background #videoStreaming {
 body .background #videoStreaming img {
   width: 480px;
   height: auto;
-  margin-left: 20px;
   margin-bottom: 5px;
+}
+
+@media (max-width: 576px) {
+  body .background #videoStreaming img {
+    width: 320px;
+    margin-left: 0px;
+  }
 }
 
 body .background #videoStreaming h3 {
@@ -81,5 +92,11 @@ body .background .decision-button {
 
 body .background .decision-button button {
   border-radius: 1px;
+}
+
+@media (max-width: 576px) {
+  body .background .decision-button button {
+    font-size: 12px;
+  }
 }
 /*# sourceMappingURL=facetracking.css.map */

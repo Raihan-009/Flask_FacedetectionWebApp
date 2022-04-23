@@ -1,0 +1,123 @@
+/**
+*
+* Testing
+*
+**/
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  margin: 0 auto;
+}
+
+.dropdown nav {
+  height: 60px;
+  background-color: #2c3e50;
+  -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown nav .logo {
+  width: 45px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.dropdown nav .checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 60px;
+  margin-right: 30px;
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .dropdown nav .checkbtn {
+    display: block;
+  }
+}
+
+.dropdown nav #check {
+  display: none;
+}
+
+.dropdown nav #check:checked ~ ul {
+  left: 0;
+}
+
+.dropdown nav ul {
+  padding: 0;
+  margin: 0;
+  float: right;
+  margin-right: 30px;
+}
+
+.dropdown nav ul li {
+  background-color: #2c3e50;
+  position: relative;
+  list-style: none;
+  display: inline-block;
+}
+
+.dropdown nav ul li a {
+  display: block;
+  padding: 0 15px;
+  color: white;
+  text-decoration: none;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.dropdown nav ul li a:hover {
+  background: #243342;
+}
+
+@media (max-width: 576px) {
+  .dropdown nav ul li {
+    display: block;
+  }
+}
+
+.dropdown nav ul li:hover > ul {
+  display: block;
+}
+
+.dropdown nav ul li:hover .rotate {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.dropdown nav ul ul {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  display: none;
+}
+
+.dropdown nav ul ul li {
+  width: 120px;
+  float: none;
+  display: list-item;
+  position: relative;
+}
+
+@media (max-width: 576px) {
+  .dropdown nav ul {
+    position: fixed;
+    width: 100%;
+    height: 60vh;
+    top: 60px;
+    left: -100%;
+    text-align: center;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+/*# sourceMappingURL=nav.css.map */
