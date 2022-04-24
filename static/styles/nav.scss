@@ -56,6 +56,11 @@ body{
                     text-decoration: none;
                     line-height: 60px;
                     font-size: 18px;
+                    .rotate{
+                        @include media("<=sm"){
+                            display: none;
+                        }
+                    }
                 }
 
                 & a:hover{
