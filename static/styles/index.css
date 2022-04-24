@@ -17,6 +17,12 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 576px) {
+  .intro p {
+    font-size: 18px;
+  }
+}
+
 .core .heading {
   position: relative;
 }

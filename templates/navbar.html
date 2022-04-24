@@ -13,7 +13,7 @@
     <div class="dropdown">
         <nav>
             <img class="logo" src="{{ url_for('static', filename = './images/openCv.png') }}" alt="">
-            <input type="checkbox" id = "check">
+            <input type="checkbox" id = "check" onclick="navbar()">
             <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -34,5 +34,6 @@
 {% endblock %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename = 'js/navbar.js') }}"></script>
 </body>
 </html>
