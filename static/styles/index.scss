@@ -29,6 +29,9 @@
         a{
             font-weight: 600;
             text-decoration: none;
+            @include media("<=sm"){
+                display: none;
+            }
         }
         .hr-line{
             .modified-height{
@@ -47,8 +50,9 @@
                 width: 200px;
                 border-top: 3px solid #3364f4;
                 @include media("<=sm"){
-                    top: 55px;
+                    top: 30px;
                     width: 100px;
+                    left: 150px;
                 }
             }
         }
@@ -128,6 +132,9 @@
         a{
             font-weight: 600;
             text-decoration: none;
+            @include media("<=sm"){
+                display: none;
+            }
         }
         .hr-line{
             .modified-height{
@@ -146,8 +153,9 @@
                 width: 100px;
                 border-top: 3px solid #3364f4;
                 @include media("<=sm"){
-                    top: 55px;
+                    top: 30px;
                     width: 100px;
+                    left: 150px;
                 }
             }
         }

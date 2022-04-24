@@ -17,6 +17,7 @@ body .background .content-heading h2 {
 body .background .content-heading p {
   margin-top: 5px;
   font-size: 20px;
+  text-align: justify;
 }
 
 body .background #streaming {

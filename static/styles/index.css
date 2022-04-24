@@ -38,6 +38,12 @@
   text-decoration: none;
 }
 
+@media (max-width: 576px) {
+  .core .heading a {
+    display: none;
+  }
+}
+
 .core .heading .hr-line .modified-height {
   margin-top: 0px !important;
 }
@@ -59,8 +65,9 @@
 
 @media (max-width: 576px) {
   .core .heading .hr-line hr::after {
-    top: 55px;
+    top: 30px;
     width: 100px;
+    left: 150px;
   }
 }
 
@@ -151,6 +158,12 @@
   text-decoration: none;
 }
 
+@media (max-width: 576px) {
+  .projects .heading a {
+    display: none;
+  }
+}
+
 .projects .heading .hr-line .modified-height {
   margin-top: 0px !important;
 }
@@ -172,8 +185,9 @@
 
 @media (max-width: 576px) {
   .projects .heading .hr-line hr::after {
-    top: 55px;
+    top: 30px;
     width: 100px;
+    left: 150px;
   }
 }
 
