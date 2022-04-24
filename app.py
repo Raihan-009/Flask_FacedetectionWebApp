@@ -14,6 +14,11 @@ app = Flask(__name__)
 def index_page():
     return render_template('index.html')
 
+#About Section
+@app.route("/about")
+def about_page():
+    return render_template("about.html")
+
 #Face detection front end
 @app.route("/face_detection")
 def face_tracking():
